@@ -12,7 +12,7 @@ namespace Piwik\Tests\Unit;
  * @group Core
  * @group LegacyAutoLoader
  */
-class LegacyAutoLoaderTest extends \PHPUnit_Framework_TestCase
+class LegacyAutoLoaderTest extends \PHPUnit\Framework\TestCase
 {
     public function testPackageClassWorks()
     {
@@ -39,19 +39,17 @@ class LegacyAutoLoaderTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(\Matomo\DummyClass::class, $class);
     }
 
-    /**
-     * @expectedException \Error
-     */
     public function testNotExistingMatomoClassStillFails()
     {
+        $this->expectException(\Error::class);
+
         $class = new \Matomo\ClassNotFound();
     }
 
-    /**
-     * @expectedException \Error
-     */
     public function testNotExistingPiwikClassStillFails()
     {
+        $this->expectException(\Error::class);
+
         $class = new \Piwik\ClassNotFound();
     }
 }

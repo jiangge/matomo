@@ -24,13 +24,13 @@ use RecursiveIteratorIterator;
  * @group Core
  * @group ReleaseCheckListTest
  */
-class ReleaseCheckListTest extends \PHPUnit_Framework_TestCase
+class ReleaseCheckListTest extends \PHPUnit\Framework\TestCase
 {
     private $globalConfig;
 
     const MINIMUM_PHP_VERSION = '7.2.0';
 
-    public function setUp()
+    public function setUp(): void
     {
         $iniReader = new IniReader();
         $this->globalConfig = $iniReader->readFile(PIWIK_PATH_TEST_TO_ROOT . '/config/global.ini.php');
@@ -222,6 +222,7 @@ class ReleaseCheckListTest extends \PHPUnit_Framework_TestCase
             PIWIK_INCLUDE_PATH . '/tests/resources/overlay-test-site-real/',
             PIWIK_INCLUDE_PATH . '/tests/resources/overlay-test-site/',
             PIWIK_INCLUDE_PATH . '/vendor/lox/xhprof/xhprof_html/docs/',
+            PIWIK_INCLUDE_PATH . '/vendor/phpunit/php-code-coverage/tests',
             PIWIK_INCLUDE_PATH . '/plugins/Morpheus/icons/',
         );
 
